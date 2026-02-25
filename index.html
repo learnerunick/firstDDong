@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>습관 트래커</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1>습관 트래커</h1>
+        <p>로컬 스토리지 기반 · 백엔드 없이 동작</p>
+      </header>
+
+      <section class="card">
+        <h2>오늘의 습관 추가</h2>
+        <form id="habit-form" class="habit-form">
+          <input
+            id="habit-input"
+            name="habit"
+            type="text"
+            placeholder="예: 물 2L 마시기"
+            maxlength="40"
+            required
+          />
+          <button type="submit">추가</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card__title-row">
+          <h2>오늘 체크리스트</h2>
+          <span id="progress-label" class="progress-label">0 / 0 완료</span>
+        </div>
+        <ul id="habit-list" class="habit-list" aria-live="polite"></ul>
+      </section>
+
+      <section class="card card--actions">
+        <button id="clear-completed" type="button" class="btn-secondary">
+          완료 항목 정리
+        </button>
+        <button id="reset-all" type="button" class="btn-danger">전체 초기화</button>
+      </section>
+    </main>
+
+    <template id="habit-item-template">
+      <li class="habit-item">
+        <label class="habit-item__label">
+          <input type="checkbox" class="habit-item__checkbox" />
+          <span class="habit-item__text"></span>
+        </label>
+        <button type="button" class="habit-item__delete" aria-label="습관 삭제">삭제</button>
+      </li>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
